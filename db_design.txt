@@ -1,0 +1,30 @@
+- workers
+    - worker_id
+    - username
+    - password
+    - role
+
+- categories
+    - category_id
+    - name
+    - description
+
+- products
+    - product_id
+    - name
+    - price
+    - quantity
+    - category_id ref categories(id)
+
+- orders
+    - order_id
+    - worker_id ref workers(id)
+    - total_price
+    - order_date
+
+- orderItems
+    - order_item_id
+    - order_id ref orders(id)
+    - product_id ref product(id)
+    - price
+    - quantity

@@ -1,0 +1,8 @@
+add roles with authorization (admin, worker) done
+
+add notification when the quantity of a product end
+
+add supplier table
+
+add file upload
+

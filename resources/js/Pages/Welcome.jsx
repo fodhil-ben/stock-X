@@ -11,13 +11,13 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Welcome" />
-            <div className="bg-gray-50 text-black/50">
-                <div className="min-h-screen flex justify-center selection:bg-[#FF2D20] selection:text-white">
-                    <div className=" w-full max-w-2xl px-6 lg:max-w-7xl">
-                        <header className="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
+            <div className="bg-gray-50 text-gray-700 min-h-screen">
+                <div className="flex justify-center items-center selection:bg-[#FF2D20] selection:text-white">
+                    <div className="w-full max-w-2xl px-6 lg:max-w-7xl">
+                        <header className="grid grid-cols-2 items-center gap-4 py-10 lg:grid-cols-3">
                             <div className="flex lg:justify-center lg:col-start-2">
                                 <svg
-                                    className="h-12 w-auto text-white lg:h-16 lg:text-[#FF2D20]"
+                                    className="h-12 w-auto text-gray-900 lg:h-16 lg:text-[#FF2D20]"
                                     viewBox="0 0 62 65"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -28,35 +28,34 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     />
                                 </svg>
                             </div>
-                            <nav className="-mx-3 flex flex-1 justify-end">
+                            <nav className="-mx-3 flex flex-1 justify-end space-x-4">
                                 {auth.user ? (
-                                    auth.permissions['view-dashboard'] 
-                                    ?(                                    
-                                    <Link
-                                        href={route('dashboard')}
-                                        className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Dashboard
-                                    </Link>)
-                                    :(     
-                                    <Link
-                                        href={route('orders.index')}
-                                        className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Orders
-                                    </Link>)
-
+                                    auth.permissions['view-dashboard'] ? (
+                                        <Link
+                                            href={route('dashboard')}
+                                            className="rounded-md px-3 py-2 text-gray-900 ring-1 ring-transparent transition hover:text-gray-700 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-gray-300 dark:focus-visible:ring-white"
+                                        >
+                                            Dashboard
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            href={route('orders.index')}
+                                            className="rounded-md px-3 py-2 text-gray-900 ring-1 ring-transparent transition hover:text-gray-700 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-gray-300 dark:focus-visible:ring-white"
+                                        >
+                                            Orders
+                                        </Link>
+                                    )
                                 ) : (
                                     <>
                                         <Link
                                             href={route('login')}
-                                            className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                            className="rounded-md px-3 py-2 text-gray-900 ring-1 ring-transparent transition hover:text-gray-700 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-gray-300 dark:focus-visible:ring-white"
                                         >
                                             Log in
                                         </Link>
                                         <Link
                                             href={route('register')}
-                                            className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                            className="rounded-md px-3 py-2 text-gray-900 ring-1 ring-transparent transition hover:text-gray-700 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-gray-300 dark:focus-visible:ring-white"
                                         >
                                             Register
                                         </Link>
@@ -64,23 +63,21 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 )}
                             </nav>
                         </header>
-                        {auth.user 
-                        ? (
-                        <main className="mt-6 text-4xl flex gap-4"> 
-                            Welcome Back {auth.user.name} create new Orders from
-                            <Link 
-                            className='font-bold'
-                            href={route('orders.create')}>
-                            Here
-                            </Link> 
-
-                        </main>)
-                        :(
-                        <main className="mt-6 text-4xl"> 
-                            Welcome to the stock management please login or create an account
-
-                        </main>)
-}
+                        {auth.user ? (
+                            <main className="mt-6 text-4xl flex gap-4 items-center"> 
+                                Welcome Back {auth.user.name}, create new orders from
+                                <Link 
+                                    className='font-bold text-[#FF2D20]'
+                                    href={route('orders.create')}
+                                >
+                                    Here
+                                </Link> 
+                            </main>
+                        ) : (
+                            <main className="mt-6 text-4xl text-center"> 
+                                Welcome to the stock management, please log in or create an account.
+                            </main>
+                        )}
                     </div>
                 </div>
             </div>

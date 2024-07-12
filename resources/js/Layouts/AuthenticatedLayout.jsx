@@ -16,26 +16,26 @@ export default function Authenticated({ auth, header, children }) {
     const [flashMsg, setFlashMsg] = useState('');
     const [notifProducts, setNotifProducts] = useState([])
     useEffect(()=>{
-        // window.Pusher = Pusher;
-        // window.Echo = new Echo({
-        //     broadcaster: 'reverb',
-        //     key: import.meta.env.VITE_REVERB_APP_KEY,
-        //     wsHost: import.meta.env.VITE_REVERB_HOST,
-        //     wsPort: import.meta.env.VITE_REVERB_PORT,
-        //     wssPort: import.meta.env.VITE_REVERB_PORT,
-        //     forceTLS: (import.meta.env.VITE_REVERB_SCHEME ?? 'https') === 'https',
-        //     enabledTransports: ['ws'],
-        // });
-        // const channel = window.Echo.channel('product');
-        // channel
-        // .listen('ProductEndedInStock', (e)=>{
-        //     console.log(e.product.id)
-        //     if (!notifProducts.some(product => product.id === e.product.id)){
-        //         setNotifProducts(prev => [...prev, e.product])
-        //         setFlashMsg(`Product with name: ${e.product.name} will end soon `)
-        //     }
-        //     console.log(notifProducts)
-        // })
+        window.Pusher = Pusher;
+        window.Echo = new Echo({
+            broadcaster: 'reverb',
+            key: import.meta.env.VITE_REVERB_APP_KEY,
+            wsHost: import.meta.env.VITE_REVERB_HOST,
+            wsPort: import.meta.env.VITE_REVERB_PORT,
+            wssPort: import.meta.env.VITE_REVERB_PORT,
+            forceTLS: (import.meta.env.VITE_REVERB_SCHEME ?? 'https') === 'https',
+            enabledTransports: ['ws'],
+        });
+        const channel = window.Echo.channel('product');
+        channel
+        .listen('ProductEndedInStock', (e)=>{
+            console.log(e.product.id)
+            if (!notifProducts.some(product => product.id === e.product.id)){
+                setNotifProducts(prev => [...prev, e.product])
+                setFlashMsg(`Product with name: ${e.product.name} will end soon `)
+            }
+            console.log(notifProducts)
+        })
         
         setTimeout(() => {
             setFlashMsg(null);

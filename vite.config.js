@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     // const env = loadEnv(mode, process.cwd());
+    console.log(process)
     process.env = {...process.env, ...loadEnv(mode, process.cwd())};
 
 
@@ -19,11 +20,7 @@ export default defineConfig(({ mode }) => {
           'process.env': {
             ...process.env
           },
-        },
-        server: {
-          host: true,
-          port: env.VITE_REVERB_PORT || 3000,
         }
-      };
+        };
 
 });

@@ -29,7 +29,7 @@ export default function OrderItemCard ({products, order,data, setData}){
             product : {order?.product_id}
             quantity: {order?.quantity}
             price: {order?.price}
-            price: {(order?.price).toFixed(2)}
+            {/* price: {(order?.price).toFixed(2)} */}
         </div>
     )
 }

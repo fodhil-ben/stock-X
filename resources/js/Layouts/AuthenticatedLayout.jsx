@@ -40,9 +40,9 @@ export default function Authenticated({ auth, header, children }) {
         setTimeout(() => {
             setFlashMsg(null);
         }, 5000);
-        return ()=>{
-            channel.stopListening('ProductEndedInStock')
-        }
+        // return ()=>{
+        //     channel.stopListening('ProductEndedInStock')
+        // }
     }, [notifProducts])
 
         return (

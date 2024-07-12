@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     // const env = loadEnv(mode, process.cwd());
-    console.log(process)
-    process.env = {...process.env, ...loadEnv(mode, process.cwd())};
+    // console.log(process)
+    // process.env = {...process.env, ...loadEnv(mode, process.cwd())};
 
 
     return {
@@ -15,12 +15,5 @@ export default defineConfig(({ mode }) => {
                 refresh: true,
             }),
             react(),
-        ],
-        define: {
-          'process.env': {
-            ...process.env
-          },
-        }
-        };
-
-});
+        ]
+    }});

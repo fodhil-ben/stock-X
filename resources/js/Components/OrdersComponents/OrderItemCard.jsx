@@ -26,10 +26,10 @@ export default function OrderItemCard ({products, order,data, setData}){
 
     return (
         <div onClick={handleRemoveItem} className="p-3 select-none mb-5 cursor-pointer rounded-xl bg-gray-200">
-            product : {order.product_id}
-            quantity: {order.quantity}
-            price: {order.price}
-            price: {(order.price).toFixed(2)}
+            product : {order?.product_id}
+            quantity: {order?.quantity}
+            price: {order?.price}
+            price: {(order?.price).toFixed(2)}
         </div>
     )
 }

@@ -4,8 +4,10 @@ import Echo from 'laravel-echo';
 
 import Pusher from 'pusher-js';
 window.Pusher = Pusher;
-import 'dotenv/config'
+// import dotenv from 'dotenv';
 
+// Configure dotenv to load the .env file
+// dotenv.config();
 
 console.log('env:', process.env);
 console.log('env:', import.meta.env);

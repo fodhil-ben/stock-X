@@ -1,3 +1,5 @@
+# https://blog.memcachier.com/2023/07/12/deploy-laravel-and-memcache-on-render-the-complete-guide/
+
 FROM richarvey/nginx-php-fpm:3.1.6
 
 COPY . .

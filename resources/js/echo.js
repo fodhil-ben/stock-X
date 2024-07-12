@@ -3,6 +3,12 @@ import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 window.Pusher = Pusher;
 
+console.log('Pusher Key:', import.meta.env.VITE_REVERB_APP_KEY);
+console.log('Pusher Host:', import.meta.env.VITE_REVERB_HOST);
+console.log('Pusher Port:', import.meta.env.VITE_REVERB_PORT);
+console.log('Pusher Scheme:', import.meta.env.VITE_REVERB_SCHEME);
+
+
 window.Echo = new Echo({
     broadcaster: 'reverb',
     key: import.meta.env.VITE_REVERB_APP_KEY,

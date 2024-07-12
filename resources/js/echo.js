@@ -4,7 +4,10 @@ import Echo from 'laravel-echo';
 
 import Pusher from 'pusher-js';
 window.Pusher = Pusher;
+import 'dotenv/config'
 
+
+console.log('env:', process.env);
 console.log('env:', import.meta.env);
 console.log('Pusher Key:', import.meta.env.VITE_REVERB_APP_KEY);
 console.log('Pusher Host:', import.meta.env.VITE_REVERB_HOST);
